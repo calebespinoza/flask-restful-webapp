@@ -1,0 +1,25 @@
+<div class="card-body table-responsive">
+    <table class="table table-dark table-hover align-middle">
+	<!--caption class="caption-top text-light">List of contacts</caption-->
+	<thead>
+	    <tr>
+    	        <th scope="col">Full Name</th>
+	    	<th scope="col">Email</th>
+	    	<th scope="col">Phone</th>
+	    	<th></th>
+	    	<th></th>
+	    </tr>
+	</thead>
+	<tbody class="table-group-divider">
+            {% for contact in contacts_list %}
+	    <tr>
+	    	<td>{{ contact.fullname }}</td>
+	    	<td>{{ contact.email }}</td>
+	    	<td>{{ contact.phone }}</td>
+	    	<td><a href="{{ url_for('contacts.update', id=contact.id) }}" class="btn btn-dark btn-sm bg-black rounded-0">Update</a></td>
+	    	<td><a href="{{ url_for('contacts.delete', id=contact.id) }}" class="btn btn-danger btn-sm rounded-0">Delete</a></td>
+	    </tr>
+            {% endfor %}
+	</tbody>
+   </table>
+</div>
